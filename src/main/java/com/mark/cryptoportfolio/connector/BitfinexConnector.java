@@ -11,8 +11,8 @@ public class BitfinexConnector {
     RestTemplate restTemplate = new RestTemplate();
 
     public BitfinexApi getDataFromBitfinex(String symbol){
-        String url = "https://api.bitfinex.com/v1/pubticker/" + symbol;
-        ResponseEntity<BitfinexApi> responseEntity = restTemplate.getForEntity(url, BitfinexApi.class);
-        return responseEntity.getBody();
+        String url = "https://api.bitfinex.com/v1/pubticker/";
+        ResponseEntity<BitfinexApi> response = restTemplate.getForEntity(url + symbol, BitfinexApi.class);
+        return response.getBody();
     }
 }
