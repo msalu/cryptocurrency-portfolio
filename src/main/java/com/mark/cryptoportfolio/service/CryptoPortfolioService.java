@@ -6,7 +6,6 @@ import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +17,10 @@ public class CryptoPortfolioService {
     BitfinexConnector bitfinexConnector;
     CryptoPortfolioRepository cryptoPortfolioRepository;
 
-    public String createNewEntry(String symbol) {
-       return bitfinexConnector.getDataFromBitfinex(symbol).getLast_price();
-
-    }
+//    public String createNewEntry(String symbol) {
+//       return bitfinexConnector.getDataFromBitfinex(symbol).getLast_price();
+//
+//    }
 
     public String deleteFromCryptoPortfolio(int id) throws Exception {
         try{
@@ -43,10 +42,27 @@ public class CryptoPortfolioService {
             oldPortfolioItem.setWalletLocation(cryptoPortfolio.getWalletLocation());
             oldPortfolioItem.setMarketValuePurchase(cryptoPortfolio.getMarketValuePurchase());
             oldPortfolioItem.setCurrentMarketValue(cryptoPortfolio.getCurrentMarketValue());
-            CryptoPortfolio response = cryptoPortfolioRepository.save(cryptoPortfolio);
-            return "Entry updated";
+            return "Entry updated" + cryptoPortfolioRepository.save(cryptoPortfolio);
         } else{
             throw new Exception("Entry not found");
         }
+    }
+
+    public String getCryptoPortfolioById(int id) throws Exception {
+        Optional<CryptoPortfolio> portfolioData = cryptoPortfolioRepository.findById(id);
+        if(portfolioData.isPresent()){
+            return "Request successful";
+        } else {
+            throw new Exception("Entry not found");
+        }
+    }
+
+    public List<CryptoPortfolio> getAllCryptoPortfolio() {
+        return cryptoPortfolioRepository.findAll();
+
+    }
+
+    public CryptoPortfolio createCryptoPortfolio(CryptoPortfolio cryptoPortfolio) {
+        return cryptoPortfolioRepository.save(cryptoPortfolio);
     }
 }
