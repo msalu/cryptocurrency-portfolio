@@ -9,8 +9,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -20,7 +18,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "cryptoportfolio")
-
 public class CryptoPortfolio {
 
     @Id
@@ -32,7 +29,6 @@ public class CryptoPortfolio {
 
     @JsonProperty("amount")
     private float amountPurchased;
-
 
     @JsonSerialize(using = LocalDateTimeSerializer.class)
     @JsonDeserialize(using = LocalDateTimeDeserializer.class)
