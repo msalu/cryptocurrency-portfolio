@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/portfolio")
@@ -37,7 +38,7 @@ public class CryptoPortfolioController {
 
 
     @GetMapping("/get")
-    public ResponseEntity<String> getCryptoPortfolioById (@RequestParam("id") int id) throws Exception {
+    public ResponseEntity<Optional<CryptoPortfolio>> getCryptoPortfolioById (@RequestParam("id") int id) throws Exception {
         return ResponseEntity.ok(cryptoPortfolioService.getCryptoPortfolioById(id));
     }
 

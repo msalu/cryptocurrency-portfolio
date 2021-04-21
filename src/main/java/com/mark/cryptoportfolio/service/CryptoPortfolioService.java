@@ -57,10 +57,10 @@ public class CryptoPortfolioService {
         }
     }
 
-    public String getCryptoPortfolioById(int id) throws Exception {
+    public Optional<CryptoPortfolio> getCryptoPortfolioById(int id) throws Exception {
         Optional<CryptoPortfolio> portfolioData = cryptoPortfolioRepository.findById(id);
         if(portfolioData.isPresent()){
-            return "Request successful";
+            return portfolioData;
         } else {
             throw new Exception("Entry not found");
         }
