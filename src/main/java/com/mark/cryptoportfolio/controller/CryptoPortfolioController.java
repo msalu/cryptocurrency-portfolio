@@ -2,8 +2,8 @@ package com.mark.cryptoportfolio.controller;
 
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.service.CryptoPortfolioService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +27,7 @@ public class CryptoPortfolioController {
 //    }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteFromCryptoPortfolio(@RequestParam("id") int id) throws Exception {
+    public ResponseEntity<HttpStatus> deleteFromCryptoPortfolio(@RequestParam("id") int id) {
         return ResponseEntity.ok(cryptoPortfolioService.deleteFromCryptoPortfolio(id));
     }
 

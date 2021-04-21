@@ -3,8 +3,8 @@ package com.mark.cryptoportfolio.service;
 import com.mark.cryptoportfolio.connector.BitfinexConnector;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,12 +31,12 @@ public class CryptoPortfolioService {
 //
 //    }
 
-    public String deleteFromCryptoPortfolio(int id) throws Exception {
+    public HttpStatus deleteFromCryptoPortfolio(int id) {
         try{
             cryptoPortfolioRepository.deleteById(id);
-            return "Entry deleted from portfolio";
+            return HttpStatus.OK;
         } catch (Exception e){
-            throw new Exception("Internal Server Error");
+            return HttpStatus.INTERNAL_SERVER_ERROR;
         }
 
     }
