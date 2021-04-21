@@ -32,8 +32,9 @@ public class CryptoPortfolioController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<String> updateCryptoPortfolio(@RequestParam("id") int id) throws Exception {
-        return ResponseEntity.ok(cryptoPortfolioService.updateCryptoPortfolio(id));
+    public ResponseEntity<CryptoPortfolio> updateCryptoPortfolio(@RequestParam("id") int id,
+                                                        @RequestBody CryptoPortfolio cryptoPortfolio) throws Exception {
+        return ResponseEntity.ok(cryptoPortfolioService.updateCryptoPortfolio(id, cryptoPortfolio));
     }
 
 

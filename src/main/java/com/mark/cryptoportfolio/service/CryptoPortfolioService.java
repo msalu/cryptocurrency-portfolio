@@ -41,7 +41,7 @@ public class CryptoPortfolioService {
 
     }
 
-    public String updateCryptoPortfolio(int id) throws Exception {
+    public CryptoPortfolio updateCryptoPortfolio(int id, CryptoPortfolio cryptoPortfolio) throws Exception {
         Optional<CryptoPortfolio> oldPortfolio = cryptoPortfolioRepository.findById(id);
         if(oldPortfolio.isPresent()){
             CryptoPortfolio oldPortfolioItem = oldPortfolio.get();
@@ -51,8 +51,8 @@ public class CryptoPortfolioService {
             oldPortfolioItem.setWalletLocation(cryptoPortfolio.getWalletLocation());
             oldPortfolioItem.setMarketValuePurchase(cryptoPortfolio.getMarketValuePurchase());
             oldPortfolioItem.setCurrentMarketValue(cryptoPortfolio.getCurrentMarketValue());
-            return "Entry updated" + cryptoPortfolioRepository.save(cryptoPortfolio);
-        } else{
+            return cryptoPortfolioRepository.save(oldPortfolioItem);
+        } else {
             throw new Exception("Entry not found");
         }
     }
