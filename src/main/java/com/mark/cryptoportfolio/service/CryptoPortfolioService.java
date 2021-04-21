@@ -4,18 +4,27 @@ import com.mark.cryptoportfolio.connector.BitfinexConnector;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class CryptoPortfolioService {
 
-    CryptoPortfolio cryptoPortfolio;
-    BitfinexConnector bitfinexConnector;
-    CryptoPortfolioRepository cryptoPortfolioRepository;
+    private CryptoPortfolio cryptoPortfolio;
+    private BitfinexConnector bitfinexConnector;
+    private CryptoPortfolioRepository cryptoPortfolioRepository;
+
+    @Autowired
+    public CryptoPortfolioService(BitfinexConnector bitfinexConnector,
+                                  CryptoPortfolioRepository cryptoPortfolioRepository) {
+        this.bitfinexConnector = bitfinexConnector;
+        this.cryptoPortfolioRepository = cryptoPortfolioRepository;
+    }
+
+
 
 //    public String createNewEntry(String symbol) {
 //       return bitfinexConnector.getDataFromBitfinex(symbol).getLast_price();

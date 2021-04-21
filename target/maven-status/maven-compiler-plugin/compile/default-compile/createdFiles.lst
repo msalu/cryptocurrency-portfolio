@@ -1,0 +1,7 @@
+com\mark\cryptoportfolio\controller\CryptoPortfolioController.class
+com\mark\cryptoportfolio\connector\BitfinexConnector.class
+com\mark\cryptoportfolio\model\CryptoPortfolio.class
+com\mark\cryptoportfolio\repository\CryptoPortfolioRepository.class
+com\mark\cryptoportfolio\model\BitfinexApi.class
+com\mark\cryptoportfolio\service\CryptoPortfolioService.class
+com\mark\cryptoportfolio\CryptoportfolioApplication.class

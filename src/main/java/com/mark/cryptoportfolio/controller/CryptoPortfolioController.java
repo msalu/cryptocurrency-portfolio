@@ -3,6 +3,7 @@ package com.mark.cryptoportfolio.controller;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.service.CryptoPortfolioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +11,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/portfolio")
-@RequiredArgsConstructor
 public class CryptoPortfolioController {
 
-    private final CryptoPortfolioService cryptoPortfolioService;
+    private CryptoPortfolioService cryptoPortfolioService;
+
+    @Autowired
+    public CryptoPortfolioController(CryptoPortfolioService cryptoPortfolioService) {
+        this.cryptoPortfolioService = cryptoPortfolioService;
+    }
 
 //    @GetMapping("/create")
 //    public ResponseEntity<String> createNewEntry(@RequestParam("symbol") String symbol) {
@@ -36,7 +41,7 @@ public class CryptoPortfolioController {
         return ResponseEntity.ok(cryptoPortfolioService.getCryptoPortfolioById(id));
     }
 
-    @GetMapping("/getall")
+    @GetMapping("/get-all")
     public ResponseEntity<List<CryptoPortfolio>> getAllCryptoPortfolio (){
         return ResponseEntity.ok(cryptoPortfolioService.getAllCryptoPortfolio());
     }
