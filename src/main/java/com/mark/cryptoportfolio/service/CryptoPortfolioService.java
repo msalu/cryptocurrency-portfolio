@@ -1,6 +1,7 @@
 package com.mark.cryptoportfolio.service;
 
 import com.mark.cryptoportfolio.connector.BitfinexConnector;
+import com.mark.cryptoportfolio.model.BitfinexApi;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +13,17 @@ import java.util.Optional;
 @Service
 public class CryptoPortfolioService {
 
-    private CryptoPortfolio cryptoPortfolio;
-    private BitfinexConnector bitfinexConnector;
-    private CryptoPortfolioRepository cryptoPortfolioRepository;
+    private final CryptoPortfolio cryptoPortfolio;
+    private final BitfinexConnector bitfinexConnector;
+    private final CryptoPortfolioRepository cryptoPortfolioRepository;
 
     @Autowired
-    public CryptoPortfolioService(BitfinexConnector bitfinexConnector,
+    public CryptoPortfolioService(BitfinexConnector bitfinexConnector, CryptoPortfolio cryptoPortfolio,
                                   CryptoPortfolioRepository cryptoPortfolioRepository) {
         this.bitfinexConnector = bitfinexConnector;
+        this.cryptoPortfolio = cryptoPortfolio;
         this.cryptoPortfolioRepository = cryptoPortfolioRepository;
     }
-
-//    public String createNewEntry(String symbol) {
-//       return bitfinexConnector.getDataFromBitfinex(symbol).getLast_price();
-//
-//    }
 
     public CryptoPortfolio createCryptoPortfolio(CryptoPortfolio cryptoPortfolio) {
         return cryptoPortfolioRepository.save(cryptoPortfolio);
@@ -70,5 +67,23 @@ public class CryptoPortfolioService {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
+
+
+//    public BitfinexApi getBitfinexApi() {
+//        return bitfinexConnector.getBitfinexData();
+//    }
+
+    public void saveCurrency(CryptoPortfolio cryptoPortfolio) {
+        cryptoPortfolioRepository.save(cryptoPortfolio);
+
+        }
+
+
+
+
+
+
+
+
 
 }

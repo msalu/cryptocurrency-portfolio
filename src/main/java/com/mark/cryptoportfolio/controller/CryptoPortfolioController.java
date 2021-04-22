@@ -1,5 +1,6 @@
 package com.mark.cryptoportfolio.controller;
 
+import com.mark.cryptoportfolio.model.BitfinexApi;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.service.CryptoPortfolioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,24 @@ import java.util.Optional;
 @RequestMapping("/v1/portfolio")
 public class CryptoPortfolioController {
 
-    private CryptoPortfolioService cryptoPortfolioService;
+    private final CryptoPortfolioService cryptoPortfolioService;
 
     @Autowired
     public CryptoPortfolioController(CryptoPortfolioService cryptoPortfolioService) {
         this.cryptoPortfolioService = cryptoPortfolioService;
     }
 
-//    @GetMapping("/create")
-//    public ResponseEntity<String> createNewEntry(@RequestParam("symbol") String symbol) {
-//        return ResponseEntity.ok(cryptoPortfolioService.createNewEntry(symbol));
+//    @GetMapping(value = "/bitfinex")
+//    public ResponseEntity<BitfinexApi> getBitfinexApi(){
+//        return ResponseEntity.ok(cryptoPortfolioService.getBitfinexApi());
 //    }
+
+    @PostMapping("/currency")
+    public String saveCurrency(@RequestBody CryptoPortfolio cryptoPortfolio){
+        cryptoPortfolioService.saveCurrency(cryptoPortfolio);
+        return cryptoPortfolio.getCryptocurrencyName();
+    }
+
 
     @PostMapping("/create")
     public ResponseEntity<CryptoPortfolio> createCryptoPortfolio(@RequestBody CryptoPortfolio cryptoPortfolio){
