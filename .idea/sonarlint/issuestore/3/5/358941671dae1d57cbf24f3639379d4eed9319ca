@@ -1,5 +1,7 @@
 
-m
-java:S1128"KRemove this unused import 'com.mark.cryptoportfolio.model.CryptoPortfolio'.(ŒÒù¦ùÿÿÿÿ8’ï¹­/
-M
-java:S1128	"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ˆ¸ó¬/
+W	java:S125;"<This block of commented-out lines of code should be removed.(–ÿµ8‚ÛëÔ/
+]
+java:S4684,"@Replace this persistent entity with a simple POJO or DTO object.( ˆóÇ8ôİÎÉ/
+X	java:S125A"<This block of commented-out lines of code should be removed.(ëôş—8Â·ëÔ/
+]
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(ÿÔ”¥8ôİÎÉ/

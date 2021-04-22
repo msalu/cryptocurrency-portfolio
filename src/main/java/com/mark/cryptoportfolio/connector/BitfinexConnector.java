@@ -14,7 +14,7 @@ public class BitfinexConnector {
 
     public String getBitfinexApi(String symbols) throws UnirestException, JSONException {
         HttpResponse<String> response = Unirest.get("https://api.bitfinex.com/v1/pubticker/" + symbols)
-                .header("bitfinex-api", "api.botfinex.com/v1/pubticker")
+                .header("bitfinex-api", "api.bitfinex.com/v1/pubticker")
                 .asString();
         String jsonString = response.getBody();
         JSONObject jsonObj = null;

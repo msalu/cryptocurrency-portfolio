@@ -9,13 +9,11 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cryptoportfolio")
+@Table
 @Component
 public class CryptoPortfolio {
 

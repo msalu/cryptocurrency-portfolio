@@ -15,7 +15,6 @@ import java.util.Optional;
 @Service
 public class CryptoPortfolioService {
 
-    private final CryptoPortfolio cryptoPortfolio;
     private final BitfinexConnector bitfinexConnector;
     private final CryptoPortfolioRepository cryptoPortfolioRepository;
 
@@ -23,7 +22,6 @@ public class CryptoPortfolioService {
     public CryptoPortfolioService(BitfinexConnector bitfinexConnector, CryptoPortfolio cryptoPortfolio,
                                   CryptoPortfolioRepository cryptoPortfolioRepository) {
         this.bitfinexConnector = bitfinexConnector;
-        this.cryptoPortfolio = cryptoPortfolio;
         this.cryptoPortfolioRepository = cryptoPortfolioRepository;
     }
 
@@ -71,7 +69,7 @@ public class CryptoPortfolioService {
     }
 
     public String getCurrencyMarketPrice(String symbols) throws UnirestException, JSONException {
-      return bitfinexConnector.getBitfinexApi(symbols);
+        return bitfinexConnector.getBitfinexApi(symbols);
     }
 
 

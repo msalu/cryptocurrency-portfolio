@@ -1,7 +1,13 @@
 
-m
-java:S1128"KRemove this unused import 'com.mark.cryptoportfolio.model.CryptoPortfolio'.(ŒÒù¦ùÿÿÿÿ8ô·ÿ¬/
+b	java:S112/"FDefine and throw a dedicated exception instead of using a generic one.(òÉ˜˜8’À²/
+g	java:S112D"FDefine and throw a dedicated exception instead of using a generic one.(Ú«Õˆùÿÿÿÿ8ş¿À²/
+X	java:S125Y"<This block of commented-out lines of code should be removed.(¸ù¨ã8‡®èÔ/
+g	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(àéÙŞúÿÿÿÿ8ş¿À²/
+g	java:S1124"FDefine and throw a dedicated exception instead of using a generic one.(Ú«Õˆùÿÿÿÿ8’À²/
+]	java:S125]"<This block of commented-out lines of code should be removed.(ìÚÆıÿÿÿÿ8ÿ›èÔ/
+]	java:S125U"<This block of commented-out lines of code should be removed.(Æ³æˆşÿÿÿÿ8ÀèÔ/
+X	java:S125!"<This block of commented-out lines of code should be removed.(ê“¢³8äÆéÔ/
+P
+java:S1068"3Remove this unused "cryptoPortfolio" private field.(Ğ«Ëò8 ¥±Õ/
 M
-java:S1128	"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ô·ÿ¬/
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ô·ÿ¬/
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÍšúÕ/

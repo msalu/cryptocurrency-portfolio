@@ -1,5 +1,24 @@
 
-Y
-java:S1854"<Remove this useless assignment to local variable "response".(ıìŒ€8ÌæÍ­/
-J
-java:S1481"-Remove this unused "response" local variable.(ıìŒ€8ÌæÍ­/
+{
+java:S1128"YRemove this unused import 'org.springframework.http.client.ClientHttpRequestInterceptor'.(Ó•õ¿şÿÿÿÿ8å€«Ö/
+m
+java:S1128"KRemove this unused import 'com.mark.cryptoportfolio.model.CryptoPortfolio'.(ŒÒù¦ùÿÿÿÿ8ÏÕöÕ/
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8úÛ•Ö/
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8å€«Ö/
+a
+java:S1128"DRemove this unused import 'com.fasterxml.jackson.databind.JsonNode'.(–×ª8óÍÑÖ/
+R
+java:S1481!"0Remove this unused "httpHeaders" local variable.(‘ìÀˆùÿÿÿÿ8Ìí¹Ö/
+a
+java:S1854!"?Remove this useless assignment to local variable "httpHeaders".(‘ìÀˆùÿÿÿÿ8Ìí¹Ö/
+u
+java:S1128"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8½îİÔ/
+e
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™8óÍÑÖ/
+]	java:S125'"<This block of commented-out lines of code should be removed.(ºôìàúÿÿÿÿ8úÛ•Ö/
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8å€«Ö/
+q
+java:S1128"ORemove this unused import 'com.fasterxml.jackson.core.JsonProcessingException'.(ßÔïÇûÿÿÿÿ8‡øÒÖ/

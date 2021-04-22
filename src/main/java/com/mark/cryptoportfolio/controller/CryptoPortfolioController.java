@@ -33,19 +33,19 @@ public class CryptoPortfolioController {
         return ResponseEntity.ok(cryptoPortfolioService.getAllCryptoPortfolio());
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<Optional<CryptoPortfolio>> getCryptoPortfolioById(@RequestParam("id") int id) throws Exception {
+    @GetMapping("/get/{id}")
+    public ResponseEntity<Optional<CryptoPortfolio>> getCryptoPortfolioById(@PathVariable("id") int id) throws Exception {
         return ResponseEntity.ok(cryptoPortfolioService.getCryptoPortfolioById(id));
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<CryptoPortfolio> updateCryptoPortfolio(@RequestParam("id") int id,
+    @PutMapping("/update/{id}")
+    public ResponseEntity<CryptoPortfolio> updateCryptoPortfolio(@PathVariable("id") int id,
                                                                  @RequestBody CryptoPortfolio cryptoPortfolio) throws Exception {
         return ResponseEntity.ok(cryptoPortfolioService.updateCryptoPortfolio(id, cryptoPortfolio));
     }
 
-    @DeleteMapping("/delete")
-    public ResponseEntity<HttpStatus> deleteFromCryptoPortfolio(@RequestParam("id") int id) {
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<HttpStatus> deleteFromCryptoPortfolio(@PathVariable("id") int id) {
         return ResponseEntity.ok(cryptoPortfolioService.deleteFromCryptoPortfolio(id));
     }
 
