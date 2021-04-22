@@ -7,6 +7,7 @@ import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,7 @@ public class CryptoPortfolioService {
 
     public Optional<CryptoPortfolio> getCryptoPortfolioById(int id) throws Exception {
         Optional<CryptoPortfolio> portfolioData = cryptoPortfolioRepository.findById(id);
-        if(portfolioData.isPresent()){
+        if (portfolioData.isPresent()) {
             return portfolioData;
         } else {
             throw new Exception("Entry not found");
@@ -45,7 +46,7 @@ public class CryptoPortfolioService {
 
     public CryptoPortfolio updateCryptoPortfolio(int id, CryptoPortfolio cryptoPortfolio) throws Exception {
         Optional<CryptoPortfolio> oldPortfolio = cryptoPortfolioRepository.findById(id);
-        if(oldPortfolio.isPresent()){
+        if (oldPortfolio.isPresent()) {
             CryptoPortfolio oldPortfolioItem = oldPortfolio.get();
             oldPortfolioItem.setCryptocurrencyName(cryptoPortfolio.getCryptocurrencyName());
             oldPortfolioItem.setAmountPurchased(cryptoPortfolio.getAmountPurchased());
@@ -60,30 +61,18 @@ public class CryptoPortfolioService {
     }
 
     public HttpStatus deleteFromCryptoPortfolio(int id) {
-        try{
+        try {
             cryptoPortfolioRepository.deleteById(id);
             return HttpStatus.OK;
-        } catch (Exception e){
+        } catch (Exception e) {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
 
 
-//    public BitfinexApi getBitfinexApi() {
-//        return bitfinexConnector.getBitfinexData();
-//    }
-
-    public void saveCurrency(CryptoPortfolio cryptoPortfolio) {
-        cryptoPortfolioRepository.save(cryptoPortfolio);
-
-        }
-
-
-
-
-
-
-
+    public CryptoPortfolio saveCurrency(CryptoPortfolio cryptoPortfolio) {
+        return cryptoPortfolioRepository.save(cryptoPortfolio);
+    }
 
 
 }

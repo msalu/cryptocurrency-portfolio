@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,24 +29,23 @@ public class CryptoPortfolioController {
 //    }
 
     @PostMapping("/currency")
-    public String saveCurrency(@RequestBody CryptoPortfolio cryptoPortfolio){
-        cryptoPortfolioService.saveCurrency(cryptoPortfolio);
-        return cryptoPortfolio.getCryptocurrencyName();
+    public ResponseEntity<CryptoPortfolio> saveCurrency(@RequestBody CryptoPortfolio cryptoPortfolio) {
+        return ResponseEntity.ok(cryptoPortfolioService.saveCurrency(cryptoPortfolio));
     }
 
 
     @PostMapping("/create")
-    public ResponseEntity<CryptoPortfolio> createCryptoPortfolio(@RequestBody CryptoPortfolio cryptoPortfolio){
+    public ResponseEntity<CryptoPortfolio> createCryptoPortfolio(@RequestBody CryptoPortfolio cryptoPortfolio) {
         return ResponseEntity.ok(cryptoPortfolioService.createCryptoPortfolio(cryptoPortfolio));
     }
 
     @GetMapping("/get-all")
-    public ResponseEntity<List<CryptoPortfolio>> getAllCryptoPortfolio (){
+    public ResponseEntity<List<CryptoPortfolio>> getAllCryptoPortfolio() {
         return ResponseEntity.ok(cryptoPortfolioService.getAllCryptoPortfolio());
     }
 
     @GetMapping("/get")
-    public ResponseEntity<Optional<CryptoPortfolio>> getCryptoPortfolioById (@RequestParam("id") int id) throws Exception {
+    public ResponseEntity<Optional<CryptoPortfolio>> getCryptoPortfolioById(@RequestParam("id") int id) throws Exception {
         return ResponseEntity.ok(cryptoPortfolioService.getCryptoPortfolioById(id));
     }
 
