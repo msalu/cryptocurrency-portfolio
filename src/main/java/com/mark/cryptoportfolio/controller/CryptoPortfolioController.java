@@ -1,16 +1,14 @@
 package com.mark.cryptoportfolio.controller;
 
-import com.mark.cryptoportfolio.connector.BitfinexConnector;
-import com.mark.cryptoportfolio.model.BitfinexApi;
+
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.service.CryptoPortfolioService;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,8 +50,9 @@ public class CryptoPortfolioController {
     }
 
     @GetMapping("/bitfinex")
-    public ResponseEntity<String> getApiData(@RequestParam("symbols") String symbols) throws UnirestException {
-        return ResponseEntity.ok(cryptoPortfolioService.getApiData(symbols));
+    public ResponseEntity<String> getCurrencyMarketPrice(@RequestParam("symbols") String symbols) throws UnirestException, JSONException {
+        return ResponseEntity.ok(cryptoPortfolioService.getCurrencyMarketPrice(symbols));
     }
+
 
 }
