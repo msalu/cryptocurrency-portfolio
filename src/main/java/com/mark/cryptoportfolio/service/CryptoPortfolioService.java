@@ -51,7 +51,7 @@ public class CryptoPortfolioService {
             CryptoPortfolio oldPortfolioItem = oldPortfolio.get();
             oldPortfolioItem.setCryptocurrencyName(cryptoPortfolio.getCryptocurrencyName());
             oldPortfolioItem.setAmountPurchased(cryptoPortfolio.getAmountPurchased());
-            oldPortfolioItem.setDatetimeOfEntry(cryptoPortfolio.getDatetimeOfEntry());
+            oldPortfolioItem.setLocalDateTime(cryptoPortfolio.getLocalDateTime());
             oldPortfolioItem.setWalletLocation(cryptoPortfolio.getWalletLocation());
             oldPortfolioItem.setMarketValuePurchase(cryptoPortfolio.getMarketValuePurchase());
             oldPortfolioItem.setCurrentMarketValue(cryptoPortfolio.getCurrentMarketValue());
