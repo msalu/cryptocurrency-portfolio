@@ -1,8 +1,10 @@
 package com.mark.cryptoportfolio.controller;
 
+import com.mark.cryptoportfolio.connector.BitfinexConnector;
 import com.mark.cryptoportfolio.model.BitfinexApi;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.service.CryptoPortfolioService;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,17 +24,6 @@ public class CryptoPortfolioController {
     public CryptoPortfolioController(CryptoPortfolioService cryptoPortfolioService) {
         this.cryptoPortfolioService = cryptoPortfolioService;
     }
-
-//    @GetMapping(value = "/bitfinex")
-//    public ResponseEntity<BitfinexApi> getBitfinexApi(){
-//        return ResponseEntity.ok(cryptoPortfolioService.getBitfinexApi());
-//    }
-
-    @PostMapping("/currency")
-    public ResponseEntity<CryptoPortfolio> saveCurrency(@RequestBody CryptoPortfolio cryptoPortfolio) {
-        return ResponseEntity.ok(cryptoPortfolioService.saveCurrency(cryptoPortfolio));
-    }
-
 
     @PostMapping("/create")
     public ResponseEntity<CryptoPortfolio> createCryptoPortfolio(@RequestBody CryptoPortfolio cryptoPortfolio) {
@@ -58,6 +49,11 @@ public class CryptoPortfolioController {
     @DeleteMapping("/delete")
     public ResponseEntity<HttpStatus> deleteFromCryptoPortfolio(@RequestParam("id") int id) {
         return ResponseEntity.ok(cryptoPortfolioService.deleteFromCryptoPortfolio(id));
+    }
+
+    @GetMapping("/bitfinex")
+    public ResponseEntity<String> getApiData(@RequestParam("symbols") String symbols) throws UnirestException {
+        return ResponseEntity.ok(cryptoPortfolioService.getApiData(symbols));
     }
 
 }

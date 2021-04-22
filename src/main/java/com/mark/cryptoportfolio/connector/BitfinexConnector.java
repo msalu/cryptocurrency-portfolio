@@ -1,21 +1,45 @@
 package com.mark.cryptoportfolio.connector;
 
 import com.mark.cryptoportfolio.model.BitfinexApi;
-import org.springframework.http.*;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 
 @Component
 public class BitfinexConnector {
 
-    RestTemplate restTemplate = new RestTemplate();
+    public String getBitfinexApi(String symbols) throws UnirestException {
+        HttpResponse<String> response = Unirest.get("https://api.bitfinex.com/v1/pubticker/" + symbols)
+                .header("bitfinex-api", "api.botfinex.com/v1/pubticker")
+                .asString();
+        return response.getBody();
 
-    public BitfinexApi getBitfinexData() {
-        String url = "https://api-pub.bitfinex.com/v2/ticker/tBTCUSD";
-        ResponseEntity<BitfinexApi> responseEntity = restTemplate.getForEntity(url, BitfinexApi.class);
-        return responseEntity.getBody();
     }
+
+
+
+        /*ObjectMapper objectMapper = new ObjectMapper();
+
+
+        String jsonArray = response.getBody();
+        try {
+            BitfinexApi bitfinexObj = objectMapper.readValue(jsonArray, BitfinexApi.class);
+            System.out.println("Last price: " + bitfinexObj.getLast_price());
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }*/
+
+
+
+     /*RestTemplate restTemplate = new RestTemplate();
+
+    public BitfinexApi getBitfinexData(String symbols) {
+        String url = "https://api-pub.bitfinex.com/v2/tickers/";
+        ResponseEntity<BitfinexApi> responseEntity = restTemplate.getForEntity(url + symbols, BitfinexApi.class);
+        return responseEntity.getBody();
+    }*/
 
 
 //    RestTemplate rt = new RestTemplate();

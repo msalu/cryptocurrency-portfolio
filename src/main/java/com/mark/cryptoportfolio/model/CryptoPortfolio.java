@@ -27,17 +27,17 @@ public class CryptoPortfolio {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @JsonProperty("symbol")
+    @JsonProperty("symbols")
     private String cryptocurrencyName;
 
     @JsonProperty("amount")
     private float amountPurchased;
 
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+//    @JsonSerialize(using = LocalDateTimeSerializer.class)
+//    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
-    private LocalDateTime datetimeOfEntry;
+    private String datetimeOfEntry;
 
     @JsonProperty("wallet")
     private String walletLocation;

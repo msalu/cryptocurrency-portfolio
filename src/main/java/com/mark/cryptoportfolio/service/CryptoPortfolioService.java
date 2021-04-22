@@ -4,6 +4,7 @@ import com.mark.cryptoportfolio.connector.BitfinexConnector;
 import com.mark.cryptoportfolio.model.BitfinexApi;
 import com.mark.cryptoportfolio.model.CryptoPortfolio;
 import com.mark.cryptoportfolio.repository.CryptoPortfolioRepository;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -70,9 +71,7 @@ public class CryptoPortfolioService {
     }
 
 
-    public CryptoPortfolio saveCurrency(CryptoPortfolio cryptoPortfolio) {
-        return cryptoPortfolioRepository.save(cryptoPortfolio);
+    public String getApiData(String symbols) throws UnirestException {
+      return bitfinexConnector.getBitfinexApi(symbols);
     }
-
-
 }
